@@ -1,0 +1,22 @@
+{
+  "name": "ict-authority-students-portal-27",
+  "version": "1.0.0",
+  "main": "createUser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "kysely": "^0.27.6",
+    "kysely-codegen": "^0.18.3",
+    "pg": "^8.14.1"
+  },
+  "dependencies": {
+    "apexcharts": "^4.5.0",
+    "react-apexcharts": "^1.7.0"
+  }
+}

@@ -1,0 +1,120 @@
+# Project Rules and Patterns
+
+## Project Configuration
+
+### 1. Design System
+- Unified dark theme across all portals
+- Consistent color palette using Tailwind CSS classes
+- Futuristic UI elements with modern aesthetics
+- High contrast accessibility standards
+
+### 2. Component Structure
+- Follow atomic design methodology
+- Reusable components in shared directories
+- Role-specific components in respective folders
+- Consistent component naming conventions
+
+### 3. File Organization
+```
+src/
+├── app/                    # Next.js 14 app directory
+│   ├── (auth)/            # Authentication routes
+│   ├── admin/             # Admin portal routes
+│   ├── instructor/        # Instructor portal routes
+│   ├── student/          # Student portal routes
+│   └── layout.tsx        # Root layout
+├── components/           # Shared components
+│   ├── layout/          # Layout components
+│   └── ui/              # UI components
+└── types/               # TypeScript types
+```
+
+## Development Guidelines
+
+### 1. Component Rules
+- Use TypeScript for all components
+- Implement proper prop types
+- Include JSDoc comments
+- Follow accessibility guidelines
+
+### 2. Styling Conventions
+```css
+/* Dark Theme Colors */
+background: bg-gray-900
+surface: bg-gray-800
+accent: blue-600
+text: text-gray-100
+border: border-gray-700
+```
+
+### 3. Code Patterns
+- Server Components by default
+- Client Components when needed for interactivity
+- Consistent error handling
+- Performance optimization
+
+## Portal-Specific Rules
+
+### 1. Admin Portal
+- Complete system access
+- Full CRUD capabilities
+- Advanced analytics
+- System configuration
+
+### 2. Instructor Portal
+- Class management focus
+- Attendance tracking
+- Limited analytics
+- Report generation
+
+### 3. Student Portal
+- Read-only access
+- Personal data view
+- Simple interface
+- Basic features
+
+## Implementation Notes
+
+### 1. Dark Theme Implementation
+- Define colors in tailwind.config.js
+- Use semantic class names
+- Maintain consistent contrast
+- Support system preferences
+
+### 2. Component Creation
+- Start with shared components
+- Build role-specific features
+- Implement authentication last
+- Focus on reusability
+
+### 3. Development Process
+- Mobile-first approach
+- Progressive enhancement
+- Regular performance checks
+- Accessibility testing
+
+## Best Practices
+
+### 1. Code Quality
+- ESLint configuration
+- Prettier formatting
+- TypeScript strict mode
+- Regular testing
+
+### 2. Performance
+- Optimize image loading
+- Minimize bundle size
+- Implement code splitting
+- Cache static assets
+
+### 3. Documentation
+- Clear component documentation
+- Type definitions
+- Usage examples
+- Setup instructions
+
+## Learning Points
+- Next.js 14 App Router structure
+- Tailwind CSS dark theme configuration
+- Role-based authentication patterns
+- Component reusability strategies
