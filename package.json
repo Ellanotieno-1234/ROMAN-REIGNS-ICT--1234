@@ -11,6 +11,8 @@
   "type": "commonjs",
   "description": "",
   "devDependencies": {
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "chartjs-plugin-zoom": "^2.2.0",
     "kysely": "^0.27.6",
     "kysely-codegen": "^0.18.3",
     "pg": "^8.14.1"

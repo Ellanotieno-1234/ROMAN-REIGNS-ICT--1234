@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/JEFF%20OTIENO/OneDrive/Desktop/ict-authority-students-portal-27/nextjs-portal/src/components/EnhancedExcelUploader.module.css"],"sourcesContent":[".progress-container {\r\n  width: 100%;\r\n  background-color: rgba(55, 65, 81, 0.5);\r\n  border-radius: 9999px;\r\n  height: 0.625rem;\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n\r\n.progress-bar {\r\n  position: absolute;\r\n  height: 100%;\r\n  border-radius: 9999px;\r\n  background-color: #3b82f6;\r\n  transition: width 0.3s ease;\r\n  width: 0%;\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;;;;AASA","debugId":null}}]
+}
