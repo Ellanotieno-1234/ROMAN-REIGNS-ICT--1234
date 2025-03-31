@@ -1,13 +1,18 @@
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
-if (!supabaseUrl || !supabaseKey) {
+if (!supabaseUrl || !anonKey) {
   throw new Error('Missing Supabase configuration')
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey)
+// Regular client for frontend use
+export const supabase = createClient(supabaseUrl, anonKey)
+
+// Admin client for server-side/admin operations
+export const supabaseAdmin = createClient(supabaseUrl, serviceRoleKey || anonKey)
 
 export async function insertData(table: string, data: any) {
   const { data: insertedData, error } = await supabase

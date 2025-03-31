@@ -1,6 +1,11 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { GlassCard } from '@/components/GlassCard'
+import ReportsTab from '@/components/ReportsTab'
+import { Button } from '@/components/ui/button'
+
 import { Bell, BarChart2, Users, Settings, LogOut, Menu, X, Search, ChevronDown, Zap, Database, Shield, Layout, Globe } from 'lucide-react'
+import SecurityTab from '@/components/SecurityTab'
 import { getData } from '@/lib/supabase'
 import { Chart } from 'react-chartjs-2'
 import { Chart as ChartJS, registerables } from 'chart.js'
@@ -100,8 +105,22 @@ export default function AdminPortal() {
                   <div className="absolute right-0 mt-2 w-48 bg-gray-800/50 backdrop-blur-xl rounded-md shadow-lg py-1 z-10 border border-gray-700/50">
                     <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-700/50">Your Profile</a>
                     <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-700/50">Account Settings</a>
-                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-7 00/50">Support</a>
-                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-700/50 text-red-400">Sign out</a>
+                    <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-700/50">Support</a>
+                    <button 
+                      onClick={async () => {
+                        await supabase.auth.signOut()
+                        await supabase
+                          .from('auth_logs')
+                          .insert([{
+                            event_type: 'logout',
+                            ip_address: '127.0.0.1',
+                            user_agent: navigator.userAgent
+                          }])
+                      }}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-700/50 text-red-400"
+                    >
+                      Sign out
+                    </button>
                   </div>
                 )}
               </div>
@@ -113,10 +132,10 @@ export default function AdminPortal() {
         <main className="flex-1 overflow-y-auto p-6 bg-gray-900">
           {activeTab === 'dashboard' && <DashboardContent />}
           {activeTab === 'analysis' && <AnalysisContent />}
-          {activeTab === 'reports' && <ReportsContent />}
+          {activeTab === 'reports' && <ReportsTab />}
           {activeTab === 'users' && <UsersContent />}
-          {activeTab === 'network' && <div className="text-center text-gray-400 mt-10">Network Module Content</div>}
-          {activeTab === 'security' && <div className="text-center text-gray-400 mt-10">Security Module Content</div>}
+          {activeTab === 'network' && <NetworkTab />}
+          {activeTab === 'security' && <SecurityTab />}
           {activeTab === 'settings' && <div className="text-center text-gray-400 mt-10">Settings Module Content</div>}
         </main>
       </div>
@@ -578,24 +597,10 @@ function AnalysisContent() {
   )
 }
 
-function ReportsContent() {
-  return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Reports</h1>
-        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Create New Report</button>
-      </div>
-    </div>
-  )
-}
+
+import UserManagementTab from '@/components/UserManagementTab';
+import NetworkTab from '@/components/NetworkTab';
 
 function UsersContent() {
-  return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">User Management</h1>
-        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Add New User</button>
-      </div>
-    </div>
-  )
+  return <UserManagementTab />;
 }

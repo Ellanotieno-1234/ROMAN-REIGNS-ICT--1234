@@ -1,0 +1,4 @@
+fastapi==0.95.2
+uvicorn==0.22.0
+polars==0.19.12  # Lightweight alternative to pandas with better Windows support
+python-multipart==0.0.6

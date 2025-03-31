@@ -21,12 +21,16 @@ graph TD
     M --> P[Export]
     L --> Q[Real-time Updates]
     
+    N1[Network Monitor] -->|Metrics| E
+    N1 -->|Alerts| L
+    
     style A fill:#4CAF50,stroke:#388E3C
     style B fill:#2196F3,stroke:#0b7dda
     style F fill:#FF9800,stroke:#f57c00
     style G fill:#9C27B0,stroke:#7b1fa2
     style H fill:#3F51B5,stroke:#303f9f
     style L fill:#607D8B,stroke:#455a64
+    style N1 fill:#00BCD4,stroke:#0097A7
 ```
 
 ## Key Components:
